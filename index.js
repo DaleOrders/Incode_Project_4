@@ -25,7 +25,6 @@ const pgPromise = require('pg-promise')
 app.use(morgan('dev'))
 
 //require dotenv to enable env template
-//test
 require('dotenv').config()
 
 

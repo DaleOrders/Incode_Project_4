@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS schedules;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS schedules (
     id SERIAL PRIMARY KEY NOT NULL,
@@ -7,6 +8,15 @@ CREATE TABLE IF NOT EXISTS schedules (
     start_at TIME NOT NULL,
     end_at TIME NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    surname VARCHAR (50) NOT NULL,
+    first_name VARCHAR (50) NOT NULL,
+    email CHAR(20) NOT NULL,
+    password VARCHAR(80) NOT NULL
+);
+
 
 
 
