@@ -1,3 +1,1 @@
-CREATE DATABASE users;
-
-CREATE DATABASE schedules;
+CREATE DATABASE project4;
