@@ -4,8 +4,11 @@ const app = express()
 
 //initialise database connection as db
 const db = require('./database')
-
 const port = process.env.PORT || 3000
+
+//router files
+const loginRouter=require('./routes/login')
+const singupRouter=require('./routes/signup')
 
 //bcrypt setup
 const bcrypt = require('bcrypt')
@@ -28,48 +31,44 @@ app.use(morgan('dev'))
 require('dotenv').config()
 
 
-//Step 2: Create the login page
-
-//display login form
-app.get('/login', (req, res) => {
-    res.render('pages/login')
-})
-
-//submit login form
-app.post('/login', (req, res) => {
-    bcrypt.hash(req.body.password, saltRounds)
-        .then(function (hash) {
-            users.password = hash;
-        });
-
-    const emailValidation = /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
-    const validEmail = emailValidation.test(req.body.email)
-
-    if (validEmail) {
-        bcrypt.compare(req.body.password, hash)
-            .then((result) => {
-                console.log('authentication successful')
-                res.redirect('pages/homepage')
-                    .catch((err) => {
-                        console.log(err)
-                        res.redirect('pages/login')
-                    })
-
-            })
-
-    }
-})
-
-
-
-
-
-
-
-
+app.use('/login', loginRouter)
+app.use('/signup', singupRouter)
 
 
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
+
+
+
+
+
+
+
+//submit login form
+// app.post('/login', (req, res) => {
+//     bcrypt.hash(req.body.password, saltRounds)
+//         .then(function (hash) {
+//             users.password = hash;
+//         });
+
+//     const emailValidation = /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
+//     const validEmail = emailValidation.test(req.body.email)
+
+//     if (validEmail) {
+//         bcrypt.compare(req.body.password, hash)
+//             .then((result) => {
+//                 console.log('authentication successful')
+//                 res.redirect('pages/homepage')
+//                     .catch((err) => {
+//                         console.log(err)
+//                         res.redirect('pages/login')
+//                     })
+
+//             })
+
+//     }
+// })
+
+
