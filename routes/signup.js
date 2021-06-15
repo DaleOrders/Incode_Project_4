@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
                 const newUser = {
                     surname: req.body.surname,
                     first_name: req.body.first_name,
-                    email=req.body.email.toLowerCaser(),
+                    email=req.body.email.toLowerCase(),
                     password=req.bcrypt.hashSync(req.body.password, saltRounds)
                 }
 
