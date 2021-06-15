@@ -56,6 +56,5 @@ router.post('/', (req, res) => {
 
     })
 
-//test
 
 module.exports = router
