@@ -31,6 +31,9 @@
         <input id="confirm-password" name="confirmPassword" type="text">
     </div>
     <button type="submit">Submit</button>
+    <% if(message) { %>
+        <p>%=message %></p>
+    <%}%>
 </body>
 
 </html>
