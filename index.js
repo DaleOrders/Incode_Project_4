@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 
 //set view engine
 app.set('view engine', 'ejs')
+app.set('views', './views')
 app.use('/public', express.static('public'))
 
 //syntax highlighting
