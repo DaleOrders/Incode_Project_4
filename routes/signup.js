@@ -5,14 +5,9 @@ const bcrypt=require('bcrypt')
 const saltRounds=10;
 
 router.get('/', (req, res) => {
-<<<<<<< HEAD
-    res.render('pages/signup')
-    message: req.query.message
-=======
     res.render('pages/signup', {
         message: req.query.message
     })
->>>>>>> 94a46234b12e538a70f5c658fa7051bc7494dbdf
 })
 
 router.post('/', (req, res) => {
