@@ -19,16 +19,17 @@ router.post('/', (req, res) => {
 
     //checks validation on the backend
     // password should be Minimum 6 characters, at least one letter and one number
+    //TODO do we wish to change this?
     const validateEmail=/^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
     const validateName=/^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/i
     const validatePassword=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
 
-    const emailValidation=validateEmail.test(req.body.email.value)
-    const validateFirstname=validateName.test(req.body.first_name.value)
-    const validateSurname=validateName.test(req.body.surname.value)
-    const validatePassword=validatePassword.test(req.body.password.value)
+    const emailValidation=validateEmail.test(req.body.email)
+    const validateFirstname=validateName.test(req.body.first_name)
+    const validateSurname=validateName.test(req.body.surname)
+    const validatedPassword=validatePassword.test(req.body.password)
 
-    if(!emailValidation||!validateFirstname||!validateSurname||!validatePassword){
+    if(!emailValidation||!validateFirstname||!validateSurname||!validatedPassword){
         return res.redirect("/signup?message=Incorrect%20information%20entered")
     }
 
