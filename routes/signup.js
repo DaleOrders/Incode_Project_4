@@ -43,13 +43,13 @@ router.post('/', (req, res) => {
         } else {
             // put data into database
             const newUser = {
-                firstname: req.body.firstname,
+                firstname: req.body.first_name,
                 lastname: req.body.surname,
                 email: req.body.email.toLowerCase(),
                 password: bcrypt.hashSync(req.body.password, saltRounds)
             }
             
-            db.none('INSERT INTO users(email, firstname, surname, password) VALUES ($1, $2, $3, $4);',
+            db.none('INSERT INTO users(email, first_name, surname, password) VALUES ($1, $2, $3, $4);',
             [newUser.email, newUser.firstname, newUser.lastname, newUser.password])
             .then(() => {
                 console.log(newUser)

@@ -37,7 +37,7 @@ app.use(morgan('dev'))
 // session setup
 app.use(session({
     cookie: {
-        maxAge: 3000, // 1 hour
+        maxAge: 5000, // 1 hour
         // secure: false, // must be true if served via HTTPS
     },
     name: 'mrcoffee_sid',
@@ -56,36 +56,3 @@ app.use('/', homeRouter)
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
-
-
-
-
-
-
-
-//submit login form
-// app.post('/login', (req, res) => {
-//     bcrypt.hash(req.body.password, saltRounds)
-//         .then(function (hash) {
-//             users.password = hash;
-//         });
-
-//     const emailValidation = /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
-//     const validEmail = emailValidation.test(req.body.email)
-
-//     if (validEmail) {
-//         bcrypt.compare(req.body.password, hash)
-//             .then((result) => {
-//                 console.log('authentication successful')
-//                 res.redirect('pages/homepage')
-//                     .catch((err) => {
-//                         console.log(err)
-//                         res.redirect('pages/login')
-//                     })
-
-//             })
-
-//     }
-// })
-
-

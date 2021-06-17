@@ -45,3 +45,5 @@ router.post('/', redirectToHome, (req, res) => {
         res.send(err.message)
     })
 })
+
+module.exports = router
