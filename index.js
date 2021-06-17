@@ -1,6 +1,7 @@
 //import and initialise express
 const express = require('express')
 const app = express()
+const session = require('express-session')
 
 //initialise database connection as db
 const db = require('./database')
@@ -24,11 +25,25 @@ app.use(express.static('public'))
 
 //syntax highlighting
 const morgan = require('morgan')
-const pgPromise = require('pg-promise')
 app.use(morgan('dev'))
+
+//require pg-promise
+const pgPromise = require('pg-promise')
+
 
 //require dotenv to enable env template
 require('dotenv').config()
+
+//session
+app.use((session({
+    cookie:{
+        maxAge: 60 * 60 * 1000, //60
+        //secure:false,// must be true if served via https and false if served via HTTP
+    },
+    secret:process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+})))
 
 
 app.use('/login', loginRouter)
@@ -46,29 +61,6 @@ app.listen(port, () => {
 
 
 
-//submit login form
-// app.post('/login', (req, res) => {
-//     bcrypt.hash(req.body.password, saltRounds)
-//         .then(function (hash) {
-//             users.password = hash;
-//         });
 
-//     const emailValidation = /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
-//     const validEmail = emailValidation.test(req.body.email)
-
-//     if (validEmail) {
-//         bcrypt.compare(req.body.password, hash)
-//             .then((result) => {
-//                 console.log('authentication successful')
-//                 res.redirect('pages/homepage')
-//                     .catch((err) => {
-//                         console.log(err)
-//                         res.redirect('pages/login')
-//                     })
-
-//             })
-
-//     }
-// })
 
 
