@@ -23,6 +23,9 @@
                     <label for="password">Password</label>
                     <input id="password" name="password" type="text">
                 </div>
+                <% if(message) { %>
+                    <p style="color:red;"><%= message %></p>
+                  <% } %>
                 <div class="sub-button">
                     <button id="submit" type="submit">Login</button>
                 </div>
