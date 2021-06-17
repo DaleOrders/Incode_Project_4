@@ -5,8 +5,14 @@ const bcrypt=require('bcrypt')
 const saltRounds=10;
 
 router.get('/', (req, res) => {
+<<<<<<< HEAD
     res.render('pages/signup')
     message: req.query.message
+=======
+    res.render('pages/signup', {
+        message: req.query.message
+    })
+>>>>>>> 94a46234b12e538a70f5c658fa7051bc7494dbdf
 })
 
 router.post('/', (req, res) => {
@@ -33,7 +39,7 @@ router.post('/', (req, res) => {
 
     //checks password and confirm password are the same
     if (req.body.password != req.body.confirmPassword) {
-        return res.redirect("/signup?message=Passwords%20don't%20matchs")
+        return res.redirect("/signup?message=Passwords%20don't%20match.")
     }
 
     //checks that user's email is not already in the database
@@ -46,8 +52,8 @@ router.post('/', (req, res) => {
                 const newUser = {
                     surname: req.body.surname,
                     first_name: req.body.first_name,
-                    email=req.body.email.toLowerCase(),
-                    password=req.bcrypt.hashSync(req.body.password, saltRounds)
+                    email: req.body.email.toLowerCase(),
+                    password: req.bcrypt.hashSync(req.body.password, saltRounds)
                 }
 
                 db.none('INSERT INTO users(surname, first_name, email, password) VALUES ($1, $2, $3, $4);', [newUser.surname, newUser.first_name, newUser.email, newUser.password])

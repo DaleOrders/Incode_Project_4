@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="res/styles.css">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/public/res/styles.css">
 </head>
 
 <body>
+<<<<<<< HEAD
     <div>
         <label for="email">Email: </label>
         <input id="email" name="email" type="email">
@@ -19,6 +20,28 @@
         <input id="password" name="password" type="password">
     </div>
     <button type="submit">Submit</button>
+=======
+    <%- include('../partials/header.ejs') -%>
+    <main>
+        <section id="form_container">
+            <h1>LOGIN:</h1>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="email">Email: </label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="text">
+                </div>
+                <div class="sub-button">
+                    <button id="submit" type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') -%>
+>>>>>>> 94a46234b12e538a70f5c658fa7051bc7494dbdf
 </body>
 
 </html>

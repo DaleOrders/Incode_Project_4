@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000
 
 //router files
 const loginRouter=require('./routes/login')
-const singupRouter=require('./routes/signup')
+const signupRouter=require('./routes/signup')
 
 //bcrypt setup
 const bcrypt = require('bcrypt')
@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: true }))
 
 //set view engine
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.set('views', './views')
+app.use('/public', express.static('public'))
 
 //syntax highlighting
 const morgan = require('morgan')
@@ -47,7 +48,7 @@ app.use((session({
 
 
 app.use('/login', loginRouter)
-app.use('/signup', singupRouter)
+app.use('/signup', signupRouter)
 
 
 
