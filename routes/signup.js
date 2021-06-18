@@ -1,11 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../database')
-<<<<<<< HEAD
-const bcrypt=require('bcrypt')
-const saltRounds=10;
-=======
->>>>>>> julia
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -100,13 +95,10 @@ router.post('/', (req, res) => {
     })
 })
 
-<<<<<<< HEAD
-=======
 router.get("/success", (req, res) => {
     res.render('/pages/signup-success', {
         message: req.query.message
     })
 })
->>>>>>> julia
 
 module.exports = router

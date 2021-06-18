@@ -35,23 +35,7 @@ const pgPromise = require('pg-promise')
 
 
 //require dotenv to enable env template
-<<<<<<< HEAD
 require('dotenv').config()
-
-//session
-app.use((session({
-    cookie:{
-        maxAge: 60 * 60 * 1000, //60
-        //secure:false,// must be true if served via https and false if served via HTTP
-    },
-    secret:process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-})))
-
-
-=======
-//require('dotenv').config()
 
 // session setup
 app.use(session({
@@ -66,7 +50,6 @@ app.use(session({
 }))
 
 // routes
->>>>>>> julia
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 app.use('/logout', logoutRouter)
@@ -75,18 +58,4 @@ app.use('/', homeRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-<<<<<<< HEAD
 })
-
-
-
-
-
-
-
-
-
-
-=======
-})
->>>>>>> julia
