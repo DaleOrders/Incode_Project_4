@@ -4,10 +4,10 @@
   "description": "Incode Project 4",
   "main": "index.js",
   "scripts": {
-    "create-database": "psql -U postgres -h localhost -d project4 -f sql/create_database.sql",
+    "create-database": "psql -U postgres -h localhost -f sql/create_database.sql",
     "create-table": "psql -U postgres -h localhost -d project4 -f sql/create_tables.sql",
     "seed-table": "psql -U postgres -h localhost -d project4 -f sql/seed_tables.sql",
-    "dev": "nodemon index.js",
+    "dev": "nodemon -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

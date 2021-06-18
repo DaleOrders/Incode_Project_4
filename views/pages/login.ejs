@@ -11,30 +11,25 @@
 
 <body>
     <%- include('../partials/header.ejs') -%>
-        <main>
-            <section id="form_container">
-                <h1>LOGIN:</h1>
-                <form action="/login" method="POST">
-                    <div>
-                        <label for="email">Email: </label>
-                        <input id="email" name="email" type="email">
-                    </div>
-                    <div>
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="text">
-                    </div>
-                    <% if(message) { %>
-                        <p style="color:red;">
-                            <%= message %>
-                        </p>
-                        <% } %>
-                            <div class="sub-button">
-                                <button id="submit" type="submit">Login</button>
-                            </div>
-                </form>
-            </section>
-        </main>
-        <%- include('../partials/footer.ejs') -%>
+    <main>
+        <section id="form_container">
+            <h1>LOGIN:</h1>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="email">Email: </label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" name="password" type="text">
+                </div>
+                <div class="sub-button">
+                    <button id="submit" type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') -%>
 </body>
 
 </html>

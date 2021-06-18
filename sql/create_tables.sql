@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS schedules (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    day INTEGER CHECK(day>=0 && day<=7),
+    day INTEGER NOT NULL CHECK (day >= 1 AND day <= 7),
     start_at TIME NOT NULL,
     end_at TIME NOT NULL,
     CONSTRAINT fk_id
