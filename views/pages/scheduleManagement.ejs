@@ -1,0 +1,65 @@
+<!-- Form to add new schedule -->
+
+<section id="form_container">
+    <h1>New Schedule:</h1>
+    <form action="../../routes/scheduleManagement.js" method="POST">
+        <div>
+            <label for="day-select">Choose a Day:</label>
+
+            <select name="day" id="day-select">
+                <option value="">--Please choose an option--</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+                <option value="7">Sunday</option>
+            </select>
+        </div>
+        <div>
+            <label for="start_at">Start Time: </label>
+            <input id="start_at" name="start_at" type="text">
+        </div>
+        <div>
+            <label for="end_at">End Time: </label>
+            <input id="end_at" name="end_at" type="text">
+        </div>
+        <div class="sub-button">
+            <button id="submit" type="submit">Submit</button>
+        </div>
+    </form>
+</section>
+
+<section>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name: </th>
+                <th scope="col">Surname: </th>
+                <th scope="col">Day: </th>
+                <th scope="col">Start Time: </th>
+                <th scope="col">End Time: </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <%for(let i=0; i<result.length; i++){ %>
+                <tr>
+                    <td><%=result[i].first_name%></td>
+                    <td><%=result[i].surname%></td>
+                    <td><%=result[i].day%></td>
+                    <td><%=result[i].to_char%></td>
+                    <td><%=result[i].end_at%></td>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
+</section>
+
+<!-- 
+This page will contain:
+
+a form to add a new schedule entry, composed of a 'select' field to select the day of the week, 
+a start time field and an end time field (the user_ID of the created schedule will be assigned to the current user)
+a second section displaying the user's existing schedules. -->

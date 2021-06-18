@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 const session = require('express-session')
+const expressLayouts = require('express-ejs-layouts');
 
 //initialise database connection as db
 const db = require('./database')
@@ -11,10 +12,11 @@ const port = process.env.PORT || 3001
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-//set view engine
+//environment layout
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.use('/public', express.static('public'))
+app.use(expressLayouts);
 
 //syntax highlighting
 const morgan = require('morgan')
@@ -53,12 +55,6 @@ app.use('/logout', logoutRouter)
 
 const homeRouter = require('./routes/home')
 app.use('/home', homeRouter)
-
-const employeeRouter = require('./routes/employeePage')
-app.use('/employeePage', employeeRouter)
-
-const scheduleRouter = require('./routes/scheduleManagement')
-app.use('/scheduleManagement', scheduleRouter)
 
 
 

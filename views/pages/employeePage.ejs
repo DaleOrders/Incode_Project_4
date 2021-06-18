@@ -1,0 +1,35 @@
+<!-- show employees schedules -->
+
+<section>
+    <h1>User Information for: </h1>
+    <% console.log(result.first_name) %>
+    <% console.log(result.surname) %>
+    <% console.log(result.email) %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Day: </th>
+                <th scope="col">Start Time: </th>
+                <th scope="col">End Time: </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <%for(let i=0; i<result.length; i++){ %>
+                <tr>
+                    <td><%=result[i].day%></td>
+                    <td><%=result[i].to_char%></td>
+                    <td><%=result[i].end_at%></td>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
+</section>
+
+
+<!-- The user name associated with the schedule will be a link to a user page that displays the user's information
+ (first name, last name, email address) and their schedules.
+
+ 
+
+Tip : You will not create one route per user, but only one route that will take the user ID as parameter. Look at URL parameters. -->
