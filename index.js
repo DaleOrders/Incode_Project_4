@@ -34,7 +34,7 @@ const pgPromise = require('pg-promise')
 // session setup
 app.use(session({
     cookie: {
-        maxAge: 5000, // 1 hour
+        maxAge: 3600000, // 1 hour
         // secure: false, // must be true if served via HTTPS
     },
     name: 'mrcoffee_sid',
