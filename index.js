@@ -5,7 +5,7 @@ const session = require('express-session')
 
 //initialise database connection as db
 const db = require('./database')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 //body passer
 app.use(express.json())
@@ -25,7 +25,7 @@ const pgPromise = require('pg-promise')
 
 
 //require dotenv to enable env template
-require('dotenv').config()
+//require('dotenv').config()
 
 // session setup
 app.use(session({
@@ -52,7 +52,7 @@ const logoutRouter = require('./routes/logout')
 app.use('/logout', logoutRouter)
 
 const homeRouter = require('./routes/home')
-app.use('/home', homeRouter)
+app.use('/', homeRouter)
 
 const employeeRouter = require('./routes/employeePage')
 app.use('/employeePage', employeeRouter)
