@@ -34,7 +34,7 @@ app.use(session({
         // secure: false, // must be true if served via HTTPS
     },
     name: 'mrcoffee_sid',
-    secret: 'Its a secret!',
+    secret:process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))

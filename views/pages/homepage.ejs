@@ -31,7 +31,29 @@
                         <tr>
                             <td><%=result[i].first_name%></td>
                             <td><%=result[i].surname%></td>
-                            <td><%=result[i].day%></td>
+                            <%switch(<%=result[i].day%>){%>
+                                <%case 1:%>
+                                    <td>Monday</td>
+                                    <%break;%>
+                                 <%case 2:%>
+                                    <td>Tuesday</td>
+                                    <%break;%>
+                                <%case 3:%>
+                                    <td>Wednesday</td>
+                                    <%break;%>
+                                <%case 4:%>
+                                    <td>Thursay</td>
+                                    <%break;%>
+                                <%case 5:%>
+                                    <td>Friday</td>
+                                    <%break;%>
+                                <%case 6:%>
+                                    <td>Saturday</td>
+                                    <%break;%>
+                                <%case 7:%>
+                                    <td>Sunday</td>
+                                    <%break;%>
+                            <%}%>
                             <td><%=result[i].to_char%></td>
                             <td><%=result[i].end_at%></td>
                         </tr>
