@@ -7,6 +7,10 @@ const session = require('express-session')
 const db = require('./database')
 const port = process.env.PORT || 3000
 
+//layouts
+const expressLayouts = require('express-ejs-layouts')
+app.use(expressLayouts)
+
 //body passer
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
