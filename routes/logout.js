@@ -3,7 +3,6 @@ const router = express.Router()
 const{ redirectToLogin } = require('../middleware')
 
 router.get('/', redirectToLogin, (req, res) => {
-    console.log(req.session)
     req.session.destroy(function(err) {
         if (err) {
             console.log(err)

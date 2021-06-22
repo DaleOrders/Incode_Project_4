@@ -1,11 +1,11 @@
 <!-- show employees schedules -->
 
-<section>
+<section id="form_container">
     <h1>User Information for: </h1>
-    <% console.log(result.first_name) %>
-    <% console.log(result.surname) %>
-    <% console.log(result.email) %>
-    <table class="table table-striped">
+    <p><% result.first_name %></p>
+    <p><% result.surname %></p>
+    <p><% result.email %></p>
+    <table id="table_schedules">
         <thead>
             <tr>
                 <th scope="col">Day: </th>
@@ -14,14 +14,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <%for(let i=0; i<result.length; i++){ %>
+            <% for(let i=0; i < result.length; i++) { %>
                 <tr>
-                    <td><%=result[i].day%></td>
-                    <td><%=result[i].to_char%></td>
-                    <td><%=result[i].end_at%></td>
+                    <td><%= result[i].day %></td>
+                    <td><%= result[i].start_at %></td>
+                    <td><%= result[i].end_at %></td>
                 </tr>
-                <%}%>
+                <% } %>
         </tbody>
     </table>
 </section>

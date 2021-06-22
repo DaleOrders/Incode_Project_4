@@ -5,11 +5,14 @@ const db = require('../database')
 const router = express.Router()
 
 router.get('/', (req,res)=>{
-    db.any('SELECT first_name, surname, email, day, start_at, end_at FROM users INNER JOIN schedules ON users.id=schedules.user_id WHERE users.id=$1;',[req.session.userId])
-    .then((then)=>{
-        res.render('pages/employeePage'),{
+    db.any(
+        'SELECT first_name, surname, email, day, start_at, end_at FROM users INNER JOIN schedules ON users.id=schedules.user_id WHERE users.id=$1;',
+        [req.session.userId])
+    .then((result)=>{
+        console.log(result)
+        res.render('pages/employeePage',{
             result: result
-        }
+        })
     })
     .catch((err)=>{
         console.log(err.message)
