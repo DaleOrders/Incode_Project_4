@@ -15,7 +15,7 @@
                     <tr>
                     <% for(let i=0; i < result.length; i++) { %>
                         <tr>
-                            <td><a href="https://www.w3schools.com" style="color:black;text-decoration: none"><%= result[i].first_name %>  <%= result[i].surname %></a></td>
+                            <td><%= result[i].first_name %>  <%= result[i].surname %></td>
                             <%switch(result[i].day){
                                 case 1:%>
                                     <td>Monday</td>

@@ -35,8 +35,7 @@
     <table id="table_schedules">
         <thead>
             <tr>
-                <th scope="col">First Name </i></th>
-                <th scope="col">Surname  </th>
+                <th scope="col">Name </i></th>
                 <th scope="col">Day  </th>
                 <th scope="col">Start Time  </th>
                 <th scope="col">End Time  </th>
@@ -45,8 +44,7 @@
         <tbody>
             <% for(let i=0; i < result.length; i++) { %>
                 <tr>
-                    <td><%= result[i].first_name %></td>
-                    <td><%= result[i].surname %></td>
+                    <td><%= result[i].first_name %>  <%= result[i].surname %></td>
                     <%switch(result[i].day){
                         case 1:%>
                             <td>Monday</td>

@@ -2,9 +2,9 @@
 
 <section id="form_container">
     <h1>User Information for: </h1>
-    <p><%= result.first_name %></p>
-    <p><%= result.surname %></p>
-    <p><%= result.email %></p>
+    <p><%= result[0].first_name %></p>
+    <p><%= result[0].surname %></p>
+    <p><%= result[0].email %></p>
     <table id="table_schedules">
         <thead>
             <tr>
@@ -16,7 +16,7 @@
         <tbody>
             <% for(let i=0; i < result.length; i++) { %>
                 <tr>
-                    <%switch(result[i].day){
+                    <% switch(result[i].day){
                         case 1:%>
                             <td>Monday</td>
                             <%break;
