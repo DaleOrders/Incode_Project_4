@@ -32,7 +32,7 @@
 </section>
 
 <section>
-    <table class="table table-striped">
+    <table id="table_schedules">
         <thead>
             <tr>
                 <th scope="col">User ID: </th>
@@ -42,7 +42,7 @@
             </tr>
         </thead>
         <tbody>
-            <% for (let i=0; i < result.length; i++) { %>
+            <% for(let i=0; i < result.length; i++) { %>
                 <tr>
                     <td><%= result[i].user_id %></td>
                     <td><%= result[i].day %></td>

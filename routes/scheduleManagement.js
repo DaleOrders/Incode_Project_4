@@ -21,8 +21,11 @@ router.get('/', (req,res) => {
 router.post('/', (req,res)=>{
     let new_user = req.session.id
     if(req.session.id){
-        db.any(`INSERT INTO schedules(user_id, day, start_at, end_at) VALUES ($1, $2, $3, $4);`, [req.session.id, req.body.day, req.body.start_at, req.body.end_at])
-            .then(()=>{
+        db.any(
+            `INSERT INTO schedules(user_id, day, start_at, end_at) VALUES ($1, $2, $3, $4);`, 
+            [req.session.id, req.body.day, req.body.start_at, req.body.end_at])
+            .then((new_schedule)=>{
+                console.log(new_schedule)
                 res.redirect('pages/scheduleManagement')
         })
         .catch((err)=>{
