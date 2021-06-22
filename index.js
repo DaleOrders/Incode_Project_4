@@ -64,6 +64,8 @@ app.use('/employeePage', employeeRouter)
 const scheduleRouter = require('./routes/scheduleManagement')
 app.use('/scheduleManagement', scheduleRouter)
 
+const individualRouter = require('./routes/individualEmployee')
+app.use('/individualEmployee', individualRouter)
 
 
 
