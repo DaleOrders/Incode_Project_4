@@ -10,6 +10,9 @@
                     <label for="password">Password:</label>
                     <input id="password" name="password" type="password">
                 </div>
+                <% if(message) { %>
+                    <p><%= message %></p>
+                <% } %>
                 <div class="sub-button">
                     <button id="submit" type="submit">Login</button>
                 </div>

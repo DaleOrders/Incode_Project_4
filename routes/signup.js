@@ -23,13 +23,6 @@ router.get('/', loggedInMessage, (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
-    //validate the fields
-    // Name: alphabet, accented characters, apostophe, dashes, spaces
-    // Email: 
-    // Password: min 8 characters and max32. alphabets and numeric. alteast one uppercase, one lower case, one numeric, one special character
-    //for password: ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{8,32}$
-
     //check whether password and confirmPassword are the same
     if (req.body.password != req.body.confirmPassword) {
         return res.redirect("/signup?message=Passwords%20don't%20match.")

@@ -6,14 +6,14 @@ const{ redirectToHome } = require('../middleware')
 
 router.get('/', redirectToHome, (req, res) => {
     res.render('pages/login', {
-        message: req.query.massage
+        message: req.query.message
     })
 })
 
 router.post('/', redirectToHome, (req, res) => {
     // has  the user enteres both email and password?
     if (req.body.email === '' || req.body.password === '') {
-        return res.redirect('/login?message=Please%20insert%20both%email%20and%20password.')
+        return res.redirect('/login?message=Please%20insert%20both%20email%20and%20password.')
     }
     // does user exist?
     db.oneOrNone('SELECT * FROM users WHERE email = $1', 
