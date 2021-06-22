@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/DaleOrders/Incode_Project_4#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.1",
     "dotenv": "^10.0.0",

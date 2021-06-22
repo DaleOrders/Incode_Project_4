@@ -1,24 +1,44 @@
 <section id="form_container">
             <h1>Welcome HOMEPAGE!</h1>
-            <h1>Your schedules</h1>
+            <h1>All Schedules</h1>
 
             <table id="table_schedules">
                 <thead>
                     <tr>
-                        <th scope="col">First Name: </th>
-                        <th scope="col">Surname: </th>
-                        <th scope="col">Day: </th>
-                        <th scope="col">Start At: </th>
-                        <th scope="col">End At: </th>
+                        <th scope="col">Name  </i></th>
+                        <th scope="col">Day  </th>
+                        <th scope="col">Start At  </th>
+                        <th scope="col">End At  </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                     <% for(let i=0; i < result.length; i++) { %>
                         <tr>
-                            <td><%= result[i].first_name %></td>
-                            <td><%= result[i].surname %></td>
-                            <td><%= result[i].day %></td>
+                            <td><a href="https://www.w3schools.com" style="color:black;text-decoration: none"><%= result[i].first_name %>  <%= result[i].surname %></a></td>
+                            <%switch(result[i].day){
+                                case 1:%>
+                                    <td>Monday</td>
+                                    <%break;
+                                case 2: %>
+                                    <td>Tuesday</td>
+                                    <%break;
+                                case 3 :%>
+                                    <td>Wednesday</td>
+                                    <%break;
+                                case 4: %>
+                                    <td>Thursday</td>
+                                    <%break;
+                                case 5: %>
+                                    <td>Friday</td>
+                                    <%break;
+                                case 6: %>
+                                    <td>Saturday</td>
+                                    <%break
+                                case 7: %>
+                                    <td>Sunday</td>
+                                    <%break;
+                                }%>
                             <td><%= result[i].start_at %></td>
                             <td><%= result[i].end_at %></td>
                         </tr>
@@ -27,3 +47,10 @@
             </table>
         </section>
    
+        <script>
+            const icon=document.getElementById('name')
+            
+            icon.addEventListener('click', ()=>{
+
+            } )
+        </script>
