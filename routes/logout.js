@@ -10,7 +10,7 @@ router.get('/', redirectToLogin, (req, res) => {
             res.send(err.message)
         } else {
             res.clearCookie('mrcoffee_sid')
-            res.redirect('/login')
+            res.redirect('pages/login')
         }
     })
     console.log(req.session)

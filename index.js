@@ -5,7 +5,7 @@ const session = require('express-session')
 
 //initialise database connection as db
 const db = require('./database')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 //layouts
 const expressLayouts = require('express-ejs-layouts')
