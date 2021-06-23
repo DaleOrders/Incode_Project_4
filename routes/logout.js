@@ -3,6 +3,7 @@ const router = express.Router()
 const{ redirectToLogin } = require('../middleware')
 
 router.get('/', redirectToLogin, (req, res) => {
+    res.clearCookie('mrcoffee_sid')
     req.session.destroy(function(err) {
         if (err) {
             console.log(err)
