@@ -1,3 +1,46 @@
-<section>
-    <h1>Hello</h1>
+<section id="form_container">
+    <h1>User Information for: <%= result[0].first_name %> <%= result[0].surname %></h1>
+    <p><strong>First Name: </strong> <%= result[0].first_name %></p>
+    <p><strong>Surname:</strong> <%= result[0].surname %></p>
+    <p><strong>Email:</strong>Email: <%= result[0].email %></p>
+    <table id="table_schedules">
+        <thead>
+            <tr>
+                <th scope="col">Day  </th>
+                <th scope="col">Start Time  </th>
+                <th scope="col">End Time  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i < result.length; i++) { %>
+                <tr>
+                    <% switch(result[i].day){
+                        case 1:%>
+                            <td>Monday</td>
+                            <%break;
+                        case 2: %>
+                            <td>Tuesday</td>
+                            <%break;
+                        case 3 :%>
+                            <td>Wednesday</td>
+                            <%break;
+                        case 4: %>
+                            <td>Thursday</td>
+                            <%break;
+                        case 5: %>
+                            <td>Friday</td>
+                            <%break;
+                        case 6: %>
+                            <td>Saturday</td>
+                            <%break
+                        case 7: %>
+                            <td>Sunday</td>
+                            <%break;
+                        }%>
+                    <td><%= result[i].start_at %></td>
+                    <td><%= result[i].end_at %></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
 </section>

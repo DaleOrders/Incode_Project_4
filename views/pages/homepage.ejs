@@ -15,7 +15,7 @@
                     <tr>
                     <% for(let i=0; i < result.length; i++) { %>
                         <tr>
-                            <td><a href="/individualEmployee" method="GET"><%= result[i].first_name %>  <%= result[i].surname %></a></td>
+                            <td><a href="/individualEmployee/<%=result[i].user_id%>" style="color:black;"><%= result[i].first_name %>  <%= result[i].surname %></a></td>
                             <%switch(result[i].day){
                                 case 1:%>
                                     <td>Monday</td>
