@@ -67,6 +67,9 @@ app.use('/scheduleManagement', scheduleRouter)
 const individualRouter = require('./routes/individualEmployee')
 app.use('/individualEmployee', individualRouter)
 
+const errorRouter = require('./routes/404')
+app.use('*', errorRouter)
+
 
 
 app.listen(port, () => {

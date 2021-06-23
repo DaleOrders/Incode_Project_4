@@ -130,6 +130,14 @@ h1 {
   color: #5c5b5b;
 }
 
+.signup{
+  font-size: 18px;
+  line-height: 35px;
+  color: #5c5b5b;
+  text-decoration: none;
+  justify-content: center;
+}
+
 #table_schedules {
   border-collapse: collapse;
   width: 100%;
