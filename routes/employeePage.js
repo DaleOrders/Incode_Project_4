@@ -12,10 +12,7 @@ router.get('/', (req,res)=>{
         console.log(result)
         res.render('pages/employeePage',{
             result: result,
-            documentTitle: "Employee Page",
-            FirstName: result.first_name,
-            Surname: result.surname,
-            Email: result.email
+            documentTitle: "Employee Page"
         })
     })
     .catch((err)=>{
