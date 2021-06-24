@@ -1,14 +1,18 @@
+
 <section id="form_container">
-            <h1>Welcome HOMEPAGE!</h1>
+            <h1>MR COFFEE'S HOMEPAGE!</h1>
+            <img id="homepage" src="../../public/assets/cafe_scene.jpg">
             <h1>All Schedules</h1>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
             <table id="table_schedules">
                 <thead>
                     <tr>
-                        <th class="th-sm" scope="col">Name  </i></th>
-                        <th class="th-sm" scope="col">Day  </th>
-                        <th class="th-sm" scope="col">Start At  </th>
-                        <th class="th-sm" scope="col">End At  </th>
+                        <th scope="col">Name  </th>
+                        <th scope="col">Day  </th>
+                        <th scope="col">Start At  </th>
+                        <th scope="col">End At  </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,11 +49,29 @@
                         <% } %>
                 </tbody>
             </table>
+
+            <script>
+                function myFunction() {
+                  var input, filter, table, tr, td, i, txtValue;
+                  input = document.getElementById("myInput");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("table_schedules");
+                  tr = table.getElementsByTagName("tr");
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                      txtValue = td.textContent || td.innerText;
+                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    }       
+                  }
+                }
+            </script>
         </section>
    
-        <script>
-            $(document).ready(function() {
-    	    $("#table_schedules").DataTable();
-            });
-
-        </script>
+        
+            
+        
