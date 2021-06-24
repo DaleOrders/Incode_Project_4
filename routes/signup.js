@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../database')
+const { check, } = require('express-validator')
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -23,7 +24,31 @@ router.get('/', loggedInMessage, (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/', 
+    //validate email and password by using express-validator pkg it doesn't work
+    check('email', 'Email is not valid')
+        .isEmail()
+        .normalizeEmail(),
+    check('password')
+        .isLength({ min: 5 })
+        .withMessage('must be at least 5 chars long')
+        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{5,32}$/)
+        .withMessage('must contain at least one uppercase, one lower case, a number, one special character'),
+
+    (req, res) => {
+        const validateEmail=/^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
+        const validatePassword=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{5,32}$/
+
+        const emailValidation=validateEmail.test(req.body.email)
+        const passwValidation=validatePassword.test(req.body.password)
+
+    if (!emailValidation) {
+        return res.redirect("/signup?message=Email%20don't%20match.")
+    }
+    if (!passwValidation) {
+        //123qweQWE!@#
+        return res.redirect("/signup?message=Password%20must%20contain%20at%20least%20one%20uppercase,%20one%20lowercase,%20a%20number,%20one%20special%20character%20and%205%20characters%20long.")
+    }
     //check whether password and confirmPassword are the same
     if (req.body.password != req.body.confirmPassword) {
         return res.redirect("/signup?message=Passwords%20don't%20match.")
@@ -49,8 +74,7 @@ router.post('/', (req, res) => {
             db.none('INSERT INTO users(email, first_name, surname, password) VALUES ($1, $2, $3, $4);',
             [newUser.email, newUser.firstname, newUser.lastname, newUser.password])
             .then(() => {
-                console.log(newUser)
-                res.redirect('/signup?success?message=Signup%20was%20successful.')
+                res.redirect('/login')
             })
             .catch((err) => {
                 // error if user hasn't been inserted into the db
