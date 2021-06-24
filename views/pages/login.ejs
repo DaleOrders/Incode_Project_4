@@ -2,6 +2,11 @@
         <section id="form_container">
             <h1>LOGIN </h1>
             <form action="/login" method="POST">
+                <div id="err-message">
+                    <% if(message) { %>
+                        <p>* <%= message %></p>
+                    <% } %>
+                </div>
                 <div>
                     <label for="email">Email: </label>
                     <input id="email" name="email" type="email">
@@ -10,12 +15,9 @@
                     <label for="password">Password:</label>
                     <input id="password" name="password" type="password">
                 </div>
-                <% if(message) { %>
-                    <p><%= message %></p>
-                <% } %>
                 <div class="sub-button">
                     <button id="submit" type="submit">Login</button>
                 </div>
-                <h5><a href="/views/pages/login.ejs" class="signup" >Sign up</a></h5>
+                <h5><a href="/signup" class="signup" >Sign up</a></h5>
             </form>
         </section>

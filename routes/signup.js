@@ -18,7 +18,8 @@ const loggedInMessage = (req, res, next) => {
 
 router.get('/', loggedInMessage, (req, res) => {
     res.render('pages/signup', {
-        message: req.query.message
+        message: req.query.message,
+        documentTitle: "Signup"
     })
 })
 
@@ -26,6 +27,9 @@ router.post('/', (req, res) => {
     //check whether password and confirmPassword are the same
     if (req.body.password != req.body.confirmPassword) {
         return res.redirect("/signup?message=Passwords%20don't%20match.")
+    }
+    if (req.body.email === '' || req.body.password === '' || req.body.first_name === '' || req.body.surname === '') {
+        return res.redirect('/signup?message=Please%20fill%20in%20all%20fields.')
     }
     // check whether email already exists in the database
     db.oneOrNone('SELECT * FROM users WHERE email = $1;', [req.body.email.toLowerCase()])

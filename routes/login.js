@@ -6,7 +6,8 @@ const{ redirectToHome } = require('../middleware')
 
 router.get('/', redirectToHome, (req, res) => {
     res.render('pages/login', {
-        message: req.query.message
+        message: req.query.message,
+        documentTitle: "Login"
     })
 })
 
