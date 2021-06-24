@@ -1,0 +1,19 @@
+from scheduleManagment.js
+
+router.post('/', (req,res)=>{
+    if(req.body.delete) {
+        db.one('DELETE FROM schedules WHERE id=$1',[req.body.id])
+        .then(()=>{
+            res.redirct('scheduleManagement')
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.send(err)
+    })
+}
+})
+
+from scheduleManagment.ejs
+<td><% result[i] %>
+    <button id="delete-btn" type="delete"><i class="fas fa-trash"></i></button>
+</td>
