@@ -8,7 +8,6 @@ router.get('/', redirectToLogin, (req,res) => {
         .then((result => {
             res.render('pages/homepage',{
                 result: result,
-                day: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
             })
         }))
         .catch((err => {
@@ -19,13 +18,3 @@ router.get('/', redirectToLogin, (req,res) => {
 
 
 module.exports = router
-//to_char(start_at,\'fmHH12:MI AM\') as start_at
-
-// Create the home page that displays all existing schedules.
-
-// You can already implement a logout button in the navigation bar. This button will lead to a route that will delete the session data and redirect to the login page.
-
-
-// Make sure that the user session remains active, even if the user closes the browser window, as long as they haven’t clicked on the logout button. 
-
-// We invite you to follow the article provided in the appendices to help you set up your logic.
