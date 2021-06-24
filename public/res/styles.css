@@ -144,7 +144,8 @@ h1 {
   justify-content: center;
 }
 
-p {
+p,
+h5 {
   text-align: center;
 }
 
