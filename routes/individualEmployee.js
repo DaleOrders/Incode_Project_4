@@ -17,17 +17,5 @@ router.get('/:id(\\d+)', (req,res)=>{
     })
 })
 
-router.get('/:id(\\d+)', (req,res)=>{
-    db.any('DELETE FROM schedules WHERE schedules.user_id=$1',[req.params.id])
-    .then((result)=>{
-        res.render('pages/employeePage', {
-            result:result
-        })
-    })
-    .catch((err)=>{
-        console.log(err)
-        res.send(err)
-    })
-})
 
 module.exports = router
