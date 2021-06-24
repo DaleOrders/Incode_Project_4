@@ -352,21 +352,25 @@ footer {
   }
 }
 
-
-.delete:hover{
+.delete:hover {
   cursor: pointer;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   background-color: black;
 }
 
-.delete{
-  color:black;
-  margin-left:40%;
-  background-color:color;
+.delete {
+  color: black;
+  margin-left: 40%;
+  background-color: color;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
+  background-image: url("/css/searchicon.png");
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 50%;
@@ -400,3 +404,22 @@ img .homepage{
 }
 
 .pagination a:hover:not(.active) {background-color: #4359688e;}
+#homepage {
+  padding-right: 10%;
+  padding-left: 10%;
+  max-width: 100%;
+  background-image: url("public/assets/mr_coffee_salle.jpg");
+  background-size: cover;
+  height: auto;
+}
+
+#err-page {
+  color: black;
+  font-size: 40px;
+  padding-right: 10%;
+  padding-left: 10%;
+  max-width: 100%;
+  background-image: url("/public/assets/cafe.jpeg");
+  background-size: cover;
+  height: 256px;
+}

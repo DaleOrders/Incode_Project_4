@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     res.status(404).render('pages/404', {
-        documentTitle: 'Error'
+        documentTitle: 'Oops, nothing here...'
     })
 })
 
