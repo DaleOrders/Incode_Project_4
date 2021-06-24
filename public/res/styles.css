@@ -122,6 +122,9 @@ main #logo_main img {
   margin-left: 20%;
   margin-right: 20%;
 }
+#err-page {
+  background-image: url("/public/assets/cafe.jpeg");
+}
 
 h1 {
   font-size: 30px;
