@@ -9,6 +9,7 @@
                 <th scope="col">Day  </th>
                 <th scope="col">Start Time  </th>
                 <th scope="col">End Time  </th>
+                <th scope="col">Delete  </th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@
                         }%>
                     <td><%= result[i].start_at %></td>
                     <td><%= result[i].end_at %></td>
+                    <td><a href="/individualEmployee/<%=result[i].user_id%>" class="delete" ><i class="fas fa-trash"></i></a></td>
                 </tr>
                 <% } %>
         </tbody>

@@ -1,19 +1,19 @@
-const firstname=document.getElementById(first_name)
-const surname=document.getElementById(surname)
-const email=document.getElementById(email)
-const password=document.getElementById(password)
+function validInfo () {
+    document.addEventListener("DOMContentLoaded", () => {
+        const email=document.getElementById(email)
+        const password=document.getElementById(password)
 
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            const validateEmail=/^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
+            const validatePassword=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{5,32}$/
 
-const validateEmail=/^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
-const validateEmail=/^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/
-const validateName=/^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/i
-const validatePassword=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+            const emailValidation=validateEmail.test(email)
+            const validatePassword=validatePassword.test(password)
 
-const emailValidation=validateEmail.test(email)
-const validateFirstname=validateName.test(first_name)
-const validateSurname=validateName.test(surname)
-const validatePassword=validatePassword.test(password)
-
-if(!emailValidation||!validateFirstname||!validateSurname||!validatePassword){
-    console.log('Incorrect entry')
+            if(!emailValidation || !validatePassword){
+                return false
+            }
+        }
+    })
 }
