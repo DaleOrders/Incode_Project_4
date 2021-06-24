@@ -6,7 +6,7 @@ const { redirectToLogin } = require('../middleware')
 //form to add new schedule
 
 router.get('/', redirectToLogin, (req,res) => {
-    db.any(`SELECT user_id, first_name, surname, day, TO_CHAR(start_at,\'fmHH12:MI AM\') as start_at, TO_CHAR(end_at,\'fmHH12:MI AM\') as end_at FROM schedules INNER JOIN users ON schedules.user_id=users.id WHERE schedules.user_id = $1;`, [req.session.userId])
+    db.any(`SELECT schedule, user_id, first_name, surname, day, TO_CHAR(start_at,\'fmHH12:MI AM\') as start_at, TO_CHAR(end_at,\'fmHH12:MI AM\') as end_at FROM schedules INNER JOIN users ON schedules.user_id=users.id WHERE schedules.user_id = $1;`, [req.session.userId])
             .then((result) => {
                 res.render('pages/scheduleManagement', {
                     result: result,
@@ -20,7 +20,7 @@ router.get('/', redirectToLogin, (req,res) => {
 })
 
 router.get('/:id(\\d+)', (req,res)=>{
-    db.any('DELETE FROM schedules WHERE user_id=$1',[req.params.id])
+    db.any('DELETE FROM schedules WHERE schedule=$1',[req.params.id])
     .then((result)=>{
         res.render('pages/scheduleManagement', {
             result:result,

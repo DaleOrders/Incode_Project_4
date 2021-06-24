@@ -1,4 +1,5 @@
 <!-- Form to add new schedule -->
+<button class="goback" onclick="goBack()"><i class="fas fa-arrow-circle-left"></i> Go Back</button>
 <script src="https://kit.fontawesome.com/a55e338b95.js" crossorigin="anonymous"></script>
 <section id="form_container">
     <h1>Add New Schedule </h1>
@@ -71,11 +72,12 @@
                         }%>
                     <td><%= result[i].start_at %></td>
                     <td><%= result[i].end_at %></td>
-                    <td><a href="/scheduleManagement/<%=result[i].user_id%>" class="delete" ><i class="fas fa-trash"></i></a></td>
+                    <td><a href="/scheduleManagement/<%=result[i].schedule%>" class="delete" ><i class="fas fa-trash"></i></a></td>
                 </tr>
                 <% } %>
         </tbody>
     </table>
+
 
 </section>
 

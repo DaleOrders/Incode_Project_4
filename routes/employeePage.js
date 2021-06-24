@@ -11,11 +11,12 @@ router.get('/', redirectToLogin, (req,res)=>{
         console.log(result)
         res.render('pages/employeePage',{
             result: result,
-            documentTitle: "Employee Page"
+            documentTitle: "Employee Page",
+            message: req.query.message
         })
     })
     .catch((err)=>{
-        console.log(err.message)
+        res.redirect('/employeePage?message=No%20schedules%20to%20show.')
     })
 })
 

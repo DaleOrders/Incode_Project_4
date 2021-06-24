@@ -380,3 +380,23 @@ footer {
 img .homepage{
   width:10%;
 }
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination{
+  margin-left: 32%;
+  margin-top:10px;     
+}
+
+.pagination a.active {
+  background-color: #96a3ab;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #4359688e;}

@@ -49,6 +49,8 @@ app.use(session({
 const loginRouter=require('./routes/login')
 app.use('/login', loginRouter)
 
+const resetRouter = require('./routes/reset')
+app.use('/reset', resetRouter)
 
 const signupRouter=require('./routes/signup')
 app.use('/signup', signupRouter)
@@ -58,6 +60,7 @@ app.use('/logout', logoutRouter)
 
 const homeRouter = require('./routes/home')
 app.use('/', homeRouter)
+
 
 const employeeRouter = require('./routes/employeePage')
 app.use('/employeePage', employeeRouter)
