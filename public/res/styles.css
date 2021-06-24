@@ -130,12 +130,22 @@ h1 {
   color: #5c5b5b;
 }
 
-.signup{
+.signup {
   font-size: 18px;
   line-height: 35px;
   color: #5c5b5b;
   text-decoration: none;
   justify-content: center;
+}
+
+#err-message {
+  color: red;
+  background-color: #d380806f;
+  justify-content: center;
+}
+
+p {
+  text-align: center;
 }
 
 #table_schedules {

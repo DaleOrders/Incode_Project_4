@@ -3,8 +3,9 @@
 const express = require('express')
 const db = require('../database')
 const router = express.Router()
+const { redirectToLogin } = require('../middleware')
 
-router.get('/', (req,res)=>{
+router.get('/', redirectToLogin, (req,res)=>{
     db.any(
         'SELECT first_name, surname, email, day, TO_CHAR(start_at,\'fmHH12:MI AM\') as start_at, TO_CHAR(end_at,\'fmHH12:MI AM\') as end_at FROM users INNER JOIN schedules ON users.id=schedules.user_id WHERE users.id=$1;',
         [req.session.userId])
