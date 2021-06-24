@@ -354,3 +354,15 @@ footer {
     font-weight: normal;
   }
 }
+
+
+.delete:hover{
+  cursor: pointer;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.delete{
+  color:black;
+  margin-left:40%;
+  background-color:color;
+}

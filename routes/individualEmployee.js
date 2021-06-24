@@ -4,7 +4,7 @@ const db = require('../database')
 const router = express.Router()
 
 router.get('/:id(\\d+)', (req,res)=>{
-    db.any('SELECT first_name, surname, email, day, TO_CHAR(start_at,\'fmHH12:MI AM\') as start_at, TO_CHAR(end_at,\'fmHH12:MI AM\') as end_at FROM users INNER JOIN schedules ON users.id=schedules.user_id WHERE users.id=$1;',[req.params.id])
+    db.any('SELECT user_id, first_name, surname, email, day, TO_CHAR(start_at,\'fmHH12:MI AM\') as start_at, TO_CHAR(end_at,\'fmHH12:MI AM\') as end_at FROM users INNER JOIN schedules ON users.id=schedules.user_id WHERE users.id=$1;',[req.params.id])
     .then((result)=>{
         console.log(result)
         res.render('pages/employeePage',{
@@ -14,6 +14,19 @@ router.get('/:id(\\d+)', (req,res)=>{
     })
     .catch((err)=>{
         console.log(err.message)
+    })
+})
+
+router.get('/:id(\\d+)', (req,res)=>{
+    db.any('DELETE FROM schedules WHERE schedules.user_id=$1',[req.params.id])
+    .then((result)=>{
+        res.render('pages/employeePage', {
+            result:result
+        })
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.send(err)
     })
 })
 
