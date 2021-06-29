@@ -20,12 +20,9 @@ router.get('/', redirectToLogin, (req,res) => {
 })
 
 router.get('/:id(\\d+)', (req,res)=>{
-    db.any('DELETE FROM schedules WHERE schedule=$1',[req.params.id])
-    .then((result)=>{
-        res.render('pages/scheduleManagement', {
-            result:result,
-            documentTitle: "Schedules"
-        })
+    db.none('DELETE FROM schedules WHERE schedule=$1',[req.params.id])
+    .then(()=>{
+        res.redirect('/scheduleManagement')
     })
     .catch((err)=>{
         console.log(err)

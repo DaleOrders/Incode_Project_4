@@ -2,10 +2,11 @@
 <button class="goback" onclick="goBack()"><i class="fas fa-arrow-circle-left"></i> Go Back</button>
 
 <section id="form_container">
-    <h1>User Information for: <%= result[0].first_name %> <%= result[0].surname %></h1>
-    <p><strong>First Name: </strong> <%= result[0].first_name %></p>
-    <p><strong>Surname:</strong> <%= result[0].surname %></p>
-    <p><strong>Email:</strong> <%= result[0].email %></p>
+        <h1>User Information for: <%= result.first_name %> <%= result.surname %></h1>
+        <p><strong>First Name: </strong> <%= result[0].first_name %></p>
+        <p><strong>Surname:</strong> <%= result[0].surname %></p>
+        <p><strong>Email:</strong> <%= result[0].email %></p>
+    
     <table id="table_schedules">
         <thead>
             <tr>
@@ -35,9 +36,12 @@
                             <%break;
                         case 6: %>
                             <td>Saturday</td>
-                            <%break
+                            <%break;
                         case 7: %>
                             <td>Sunday</td>
+                            <%break;
+                        case null: %>
+                            <td></td>
                             <%break;
                         }%>
                     <td><%= result[i].start_at %></td>

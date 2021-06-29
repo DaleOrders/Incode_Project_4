@@ -1,4 +1,4 @@
-function validInfo () {
+/* function validInfo () {
     document.addEventListener("DOMContentLoaded", () => {
         const email=document.getElementById(email)
         const password=document.getElementById(password)
@@ -16,4 +16,4 @@ function validInfo () {
             }
         }
     })
-}
+} */
